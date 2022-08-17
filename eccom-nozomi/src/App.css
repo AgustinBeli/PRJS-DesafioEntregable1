@@ -32,7 +32,46 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.encabezado__global {
+  background-color: #212529;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.encabezado__global nav ul {
+  padding: 0;
+  margin: 0vw 2vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2vw;
+}
+
+.encabezado__global nav ul li {
+  list-style: none;
+}
+
+.encabezado__global nav ul li a {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1.5vw;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.encabezado__global nav ul li a:hover {
+  color: #deb887;
 }
