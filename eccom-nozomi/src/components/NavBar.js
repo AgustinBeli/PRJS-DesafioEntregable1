@@ -3,17 +3,15 @@ import CartWidget from "./CartWidget"
 const NavBar = () => {
     return (
         <div>
-            <header>
+            <nav className="navbar navbar-dark bg-primary">
                 <CartWidget />
-                <nav className="navbar navbar-dark bg-primary">
-                    <ul className="text-light">
-                        <li><a href="./index.html">home</a></li>
-                        <li><a href="./html/carta.html">carta</a></li>
-                        <li><a href="./html/ofertas.html">ofertas</a></li>
-                        <li><a href="./html/nosotros.html">nosotros</a></li>
-                    </ul>
-                </nav>
-            </header>
+                <ul className="text-light">
+                    <li><a className="text-light" href="./index.html">home</a></li>
+                    <li><a className="text-light" href="./html/carta.html">carta</a></li>
+                    <li><a className="text-light" href="./html/ofertas.html">ofertas</a></li>
+                    <li><a className="text-light" href="./html/nosotros.html">nosotros</a></li>
+                </ul>
+            </nav>
         </div>
     )
 }

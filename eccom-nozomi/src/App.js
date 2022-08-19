@@ -6,7 +6,11 @@ const App = () => {
     <div>
       <>
         <NavBar />
-        <ItemListContainer />
+        <hr />
+        <ItemListContainer articulo="Iphone XS" precio="USD550" />
+        <hr />
+        <ItemListContainer articulo="Iphone XS MAX" precio="USD750" />
+        <hr />
       </>
     </div>
   );
