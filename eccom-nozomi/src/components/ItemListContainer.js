@@ -2,7 +2,12 @@ import ItemCount from "./ItemCount"
 
 const ItemListContainer = (item) => {
     const add = (cant) => {
-        alert("agregaste " + cant + " items, al carrito")
+        if (cant !== 0) {
+            alert("agregaste " + cant + " items, al carrito")
+        } else {
+            <button></button>
+            alert("no seleccionaste una cantidad")
+        }
     }
     return (
         <div>

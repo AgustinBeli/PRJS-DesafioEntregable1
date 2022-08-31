@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const ItemCount = ({ stock = 0, initial = 2, add }) => {
+const ItemCount = ({ stock = 0, initial = 0, add }) => {
     const [count, setCount] = useState(0);
 
     useEffect(() => {
@@ -24,9 +24,9 @@ const ItemCount = ({ stock = 0, initial = 2, add }) => {
             <button onClick={addItem}>+</button>
             <span> </span>
             {
-                stock
+                count
                     ? <button onClick={() => add(count)}> agregar </button>
-                    : <button disabled> agregar </button>
+                    : <button disabled={true}> agregar </button>
             }
         </>
     )
