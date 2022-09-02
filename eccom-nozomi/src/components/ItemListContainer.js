@@ -1,20 +1,25 @@
-import ItemCount from "./ItemCount"
+import ItemCount from './ItemCount';
+import ItemList from './ItemList';
+import { useEffect, useState } from 'react';
+import promesa from '../utilities/promesa'
 
-const ItemListContainer = (item) => {
-    const add = (cant) => {
-        if (cant !== 0) {
-            alert("agregaste " + cant + " items, al carrito")
-        } else {
-            <button></button>
-            alert("no seleccionaste una cantidad")
-        }
-    }
+const ItemListContainer = () => {
+    const [datos, setDatos] = useState([]);
+
+    useEffect(() => {
+        promesa({ datos })
+            .then(result => setDatos(result))
+            .catch(err => alert("ERROR"))
+
+    }, [datos])
+
     return (
-        <div>
-            <p>Articulo: {item.articulo}</p>
-            <p>Precio: {item.precio}</p>
-            <ItemCount stock={5} initial={0} add={add} ></ItemCount>
-        </div>
+        <>
+            <>
+                <ItemList items={datos} />
+            </>
+        </>
     )
 }
+
 export default ItemListContainer

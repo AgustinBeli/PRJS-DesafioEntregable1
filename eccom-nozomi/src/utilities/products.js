@@ -1,16 +1,16 @@
-const products = [
+export const products = [
     {
-        id: 01,
+        id: 1,
         name: "Iphone",
         model: "XS",
-        stock: 5,
-        price: "USD 1000"
+        price: "USD 750",
+        image: ""
     },
     {
-        id: 02,
+        id: 2,
         name: "Iphone",
         model: "XS MAX",
-        stock: 5,
-        price: "USD 1500"
+        price: "USD 1000",
+        image: ""
     }
 ]
