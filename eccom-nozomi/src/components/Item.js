@@ -2,7 +2,7 @@ import ItemCount from "./ItemCount";
 
 const Item = ({ id, name, model, price, image }) => {
     const add = (msj) => {
-        alert("Agregaste al carrito: " + msj + " " + name + " " + model);
+        alert(`Agregaste al carrito: ${msj} ${name} ${model}`);
     }
     return (
         <>
