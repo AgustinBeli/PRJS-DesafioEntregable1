@@ -1,20 +1,20 @@
+import { Link } from "react-router-dom"
 import CartWidget from "./CartWidget"
+
 
 const NavBar = () => {
     return (
         <div className="grid">
             <nav className="navbar navbar-dark bg-primary grid">
-                <CartWidget />
-                <ul className="text-light text-center m-0 col-10 list-inline" data-bs-toggle="tooltip">
+                <Link className="col-6" to='/' style={{ textDecoration: "none", color: "white" }}><CartWidget /></Link>
+                <ul className="text-light text-center m-0 col-6 list-inline" data-bs-toggle="tooltip">
                     <div className="row">
-                        <li className="col"><a className="nav-link text-light" href="./index.html">home</a></li>
-                        <li className="col"><a className="nav-link text-light" href="./html/carta.html">carta</a></li>
-                        <li className="col"><a className="nav-link text-light" href="./html/ofertas.html">ofertas</a></li>
-                        <li className="col"><a className="nav-link text-light" href="./html/nosotros.html">nosotros</a></li>
+                        <Link className="col" to='/category/1' style={{ textDecoration: "none", color: "white" }}><h2 className="nav-link text-light">APPLE</h2></Link>
+                        <Link className="col" to='/category/2' style={{ textDecoration: "none", color: "white" }}><h2 className="nav-link text-light">XIAOMI</h2></Link>
                     </div>
                 </ul>
-            </nav>
-        </div>
+            </nav >
+        </div >
     )
 }
 export default NavBar

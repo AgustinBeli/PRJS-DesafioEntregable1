@@ -5,7 +5,7 @@ let delay = (task) => {
         if (validate) {
             setTimeout(() => {
                 resolve(task)
-            }, 2000);
+            }, 500);
 
         } else {
             reject(alert("error"))
