@@ -1,18 +1,23 @@
-import ItemCount from "./ItemCount";
+import ItemCount from './ItemCount';
 
-const Item = ({ id, name, model, price, image }) => {
-    const add = (msj) => {
-        alert(`Agregaste al carrito: ${msj} ${name} ${model}`);
-    }
+const Item = ({ id, name, model, image, price }) => {
+
+    const add = (msj => {
+        alert(`Agregaste: ${msj} ${name} ${model} al carrito`);
+    })
+
     return (
-        <>
+        <div>
             <h4>{id} {name} {model}</h4>
-            <img src={image} alt=""></img>
-            <p>${price}</p>
-            <ItemCount stock={5} initial={0} add={add} />
-            <hr></hr>
-        </>
+            <img className="productImage" src={image} alt="" />
+            <h5>{price}</h5>
+            < ItemCount stock={5} initial={0} add={add} />
+        </div>
     );
-
 }
-export default Item
+
+export default Item;
+
+
+
+

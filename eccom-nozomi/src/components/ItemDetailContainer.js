@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { products } from '../utilities/products';
 import delay from '../utilities/delay'
-import ItemList from './ItemList';
+import ItemDetail from "./ItemDetail";
 
-const ItemListContainer = () => {
-    const [data, setData] = useState([]);
+const ItemDetailContainer = () => {
+    const [info, setInfo] = useState([]);
 
     useEffect(() => {
-        delay(products)
-            .then(result => setData(result))
+        delay(products[0])
+            .then(result => setInfo(result))
             .catch(err => alert(err))
     }, [])
 
@@ -16,11 +16,11 @@ const ItemListContainer = () => {
         <>
             {
                 <>
-                    <ItemList items={data} />
+                    <ItemDetail item={info} />
                 </>
             }
         </>
     )
 }
 
-export default ItemListContainer
+export default ItemDetailContainer;

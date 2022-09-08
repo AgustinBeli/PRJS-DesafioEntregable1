@@ -12,7 +12,6 @@ const NavBar = () => {
                         <li className="col"><a className="nav-link text-light" href="./html/ofertas.html">ofertas</a></li>
                         <li className="col"><a className="nav-link text-light" href="./html/nosotros.html">nosotros</a></li>
                     </div>
-
                 </ul>
             </nav>
         </div>

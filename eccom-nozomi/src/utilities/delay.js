@@ -1,16 +1,16 @@
-let validate = true
+let validate = true;
 
-let promesa = (task) => {
+let delay = (task) => {
     return new Promise((resolve, reject) => {
         if (validate) {
             setTimeout(() => {
                 resolve(task)
-            }, 2000)
+            }, 2000);
 
         } else {
             reject(alert("error"))
         }
-    })
+    });
 }
 
-export default promesa
+export default delay
