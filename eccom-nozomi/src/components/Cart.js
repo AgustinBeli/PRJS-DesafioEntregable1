@@ -3,6 +3,7 @@ import { CartContext } from "./CartContext";
 import { Link } from "react-router-dom";
 import Currency from "../utilities/Currency";
 import { createOrderFirestore } from "../utilities/firestoreFetch";
+import { serverTimestamp } from "firebase/firestore";
 
 const Cart = () => {
 
@@ -18,9 +19,11 @@ const Cart = () => {
             items: test.cartList.map(item => ({
                 id: item.idItem,
                 price: item.priceItem,
-                name: item.nameItem,
+                title: item.nameItem,
+                model: item.modelItem,
                 cant: item.cantItem
             })),
+            date: serverTimestamp(),
             total: test.totalPrice()
         }
         createOrderFirestore(order)
