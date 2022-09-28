@@ -6,42 +6,57 @@ const CartContextProvider = ({ children }) => {
     const [cartList, setCartList] = useState([]);
 
     const addItem = (item, cant) => {
-        const newItem = {
-            ...item,
-            cant: cant
-        }
-        if (!isOnCart(item.id)) {
-            setCartList([...cartList, newItem])
-        } else {
-            const newItems = cartList.map(prod => {
-                if (prod.id === item.id) {
-                    const newItem = {
-                        ...prod,
-                        cant: cant + prod.cant
-                    }
-                    return newItem
-                } else {
-                    return prod
+        let found = cartList.find(product => product.idItem === item.id);
+        if (found === undefined) {
+            setCartList([
+                ...cartList,
+                {
+                    idItem: item.id,
+                    imageItem: item.image,
+                    nameItem: item.name,
+                    modelItem: item.model,
+                    priceItem: item.price,
+                    cantItem: cant
                 }
-            })
-            setCartList(newItems)
+            ]);
+        } else {
+            found.cantItem += cant;
+            setCartList([
+                ...cartList
+            ]);
         }
-    }
-
-    const isOnCart = (id) => {
-        return cartList.some(prod => prod.id === id)
-    }
-    const removeItem = (id) => {
-        let newCartList = cartList.filter(item => item.id !== id)
-        setCartList(newCartList)
     }
 
     const clear = () => {
         setCartList([])
     }
 
+    const removeItem = (id) => {
+        let result = cartList.filter(item => item.idItem !== id)
+        setCartList(result)
+    }
+
+    const priceTotalItem = (idItem) => {
+        let index = cartList.map(item => item.idItem).indexOf(idItem);
+        return cartList[index].priceItem * cartList[index].cantItem;
+    }
+
+    const subTotalPrice = () => {
+        let subTotalItem = cartList.map(item => priceTotalItem(item.idItem));
+        return subTotalItem.reduce((previousValue, currentValue) => previousValue + currentValue);
+    }
+
+    const totalPrice = () => {
+        return subTotalPrice();
+    }
+
+    const cantTotalITem = () => {
+        let cantTotal = cartList.map(item => item.cantItem);
+        return cantTotal.reduce(((previousValue, currentValue) => previousValue + currentValue), 0);
+    }
+
     return (
-        <CartContext.Provider value={{ cartList, addItem, removeItem, clear }}>
+        <CartContext.Provider value={{ cartList, addItem, removeItem, clear, priceTotalItem, subTotalPrice, totalPrice, cantTotalITem }}>
             {children}
         </CartContext.Provider>
     )

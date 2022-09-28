@@ -1,7 +1,7 @@
 export const products = [
     {
         id: 1,
-        categoryId: 1,
+        categoryId: "a",
         name: "Iphone",
         model: "XS",
         price: "USD 180",
@@ -9,12 +9,12 @@ export const products = [
         description: "Camara full hd",
         category: {
             name: "apple",
-            id: 1
+            id: a
         }
     },
     {
         id: 2,
-        categoryId: 1,
+        categoryId: "a",
         name: "Iphone",
         model: "14",
         price: "USD 1700",
@@ -22,12 +22,12 @@ export const products = [
         description: "Camara 4K",
         category: {
             name: "apple",
-            id: 1
+            id: a
         }
     },
     {
         id: 3,
-        categoryId: 2,
+        categoryId: "b",
         name: "Xiaomi",
         model: "11",
         price: "USD 270",
@@ -35,7 +35,7 @@ export const products = [
         description: "Red 5G",
         category: {
             name: "xiaomi",
-            id: 2
+            id: b
         }
     }
 ]

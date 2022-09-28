@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Currency from '../utilities/Currency';
 import { CartContext } from './CartContext';
 import ItemCount from './ItemCount';
 
@@ -18,7 +19,7 @@ const Item = ({ id, name, model, image, price }) => {
                 <h4 className='col-2'>{name} {model}</h4>
                 <img className="productImage col-2" src={image} alt="" />
                 <Link to={`/item/${id}`}><button>Detalles</button></Link>
-                <h5 className='col-2'>{price}</h5>
+                <h5 className='col-2'><Currency number={price} /></h5>
                 {
                     itemCount === 0
                         ? <ItemCount className='col-6' stock={5} initial={0} add={add} />

@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
-import { products } from '../utilities/products';
-import delay from '../utilities/delay'
 import ItemDetail from "./ItemDetail";
 import { useParams } from 'react-router-dom';
+import { firestoreFetchOne } from '../utilities/firestoreFetch';
 
 const ItemDetailContainer = () => {
     const [info, setInfo] = useState([]);
     const { idItem } = useParams();
 
     useEffect(() => {
-        delay(products.find(item => item.id === parseInt(idItem)))
+        firestoreFetchOne(idItem)
             .then(result => setInfo(result))
             .catch(err => alert(err))
     }, [])
