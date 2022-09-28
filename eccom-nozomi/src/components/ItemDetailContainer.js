@@ -11,7 +11,7 @@ const ItemDetailContainer = () => {
         firestoreFetchOne(idItem)
             .then(result => setInfo(result))
             .catch(err => alert(err))
-    }, [])
+    }, [idItem])
 
     return (
         <>

@@ -2,11 +2,34 @@ import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import { Link } from "react-router-dom";
 import Currency from "../utilities/Currency";
-import { createOrder } from "../utilities/firestoreFetch";
+import { createOrderFirestore } from "../utilities/firestoreFetch";
 
 const Cart = () => {
 
     const test = useContext(CartContext);
+
+    const createOrder = () => {
+        let order = {
+            buyer: {
+                name: 'Agustin',
+                phone: '1122626488',
+                email: 'agustinbelizan@icloud.com'
+            },
+            items: test.cartList.map(item => ({
+                id: item.idItem,
+                price: item.priceItem,
+                name: item.nameItem,
+                cant: item.cantItem
+            })),
+            total: test.totalPrice()
+        }
+        createOrderFirestore(order)
+            .then(result => alert('Tu orden ha sido creada con éxito. '))
+            .catch(error => console.log(error))
+
+        test.clear();
+    }
+
     return (
         <>
             <Link to='/'><h1>Seguir comprando</h1></Link>

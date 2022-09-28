@@ -35,8 +35,9 @@ export const firestoreFetchOne = async (idItem) => {
     }
 }
 
-export const createOrder = async (order) => {
+export const createOrderFirestore = async (order) => {
     const newOrder = doc(collection(db, "orders"));
+
     await setDoc(newOrder, order);
     return newOrder;
 }
